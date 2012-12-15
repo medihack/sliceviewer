@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Slice Viewer Demo</title>
+		<link rel="stylesheet" href="../external/jquery.ui.core.css" type="text/css" />
+		<link rel="stylesheet" href="../external/jquery.ui.slider.css" type="text/css" />
+		<link rel="stylesheet" href="../external/jquery.ui.theme.css" type="text/css" />
+		<link rel="stylesheet" href="../themes/sliceviewer.css" type="text/css" />
+		<style type="text/css"></style>
+		<script type="text/javascript" src="../external/jquery.js"></script>
+		<script type="text/javascript" src="../external/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="../external/jquery.ui.core.js"></script>
+		<script type="text/javascript" src="../external/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="../external/jquery.ui.mouse.js"></script>
+		<script type="text/javascript" src="../external/jquery.ui.slider.js"></script>
+		<script type="text/javascript" src="../external/jquery.ui.touch-punch.js"></script>
+		<script type="text/javascript" src="../src/sliceviewer.js"></script>
+		<script type="text/javascript">
+			$(function() {
+        images = [];
+        for (i = 0; i <= 36; i++) {
+            str = "./images/";
+            str = str + "img" + i + ".png";
+            images.push(str);
+        } 
+        $("#viewer").sliceviewer({
+            images: images
+        });
+			})
+		</script>
+	</head>
+	<body>
+		<h1>Slice Viewer Demo</h1>
+		<div id="viewer" />
+	</body>
+</html>

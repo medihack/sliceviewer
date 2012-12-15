@@ -1,0 +1,68 @@
+/*
+ * Slice Viewer @VERSION
+ *
+ * Copyright (c) 2012 Kai Schlamp
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ *
+ * https://github.com/medihack/slice-viewer
+ */
+.sliceviewer {
+	position: relative;
+	padding: 0px;
+	margin: 0px;
+}
+
+.sliceviewer .viewport {
+	position: absolute;
+}
+
+.sliceviewer .stack {
+	position: absolute;
+	z-index: 0;
+}
+
+.sliceviewer .stack img {
+	display: none;
+}
+
+.sliceviewer .stack img.current {
+	display: block;
+}
+
+.sliceviewer .glasspane {
+	position: absolute;
+	z-index: 99;
+}
+
+.sliceviewer .loader {
+	position: absolute;
+	z-index: 100;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.sliceviewer .sliderport {
+	background-color: #000000;
+	width: 16px;
+	position: absolute;
+	right: -15px;
+	border-style: none;
+}
+
+.sliceviewer .ui-slider {
+	width: 5px;
+	left: 5px;
+}
+
+.sliceviewer .ui-slider-handle {
+	width: 24px;
+	height: 24px;
+	background:url(images/slider-button.png);
+	border-style: none;
+	outline: 0;
+	left: -0.5em;
+}
+
+.sliceviewer .ui-slider-handle.ui-state-active {
+	background:url(images/slider-button-active.png);
+}
