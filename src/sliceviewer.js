@@ -55,7 +55,7 @@ $.widget("neuromia.sliceviewer", {
 		self._createViewport();
 		self._createSlider();
 
-		self.glasspane.mousewheel(function(event, delta, deltaX, deltaY) {
+		self.toplayer.mousewheel(function(event, delta, deltaX, deltaY) {
 			if (delta > 0) {
 				if (self.currentSlice < options.images.length - 1) {
 					self.showSlice(self.currentSlice + 1);
@@ -66,12 +66,7 @@ $.widget("neuromia.sliceviewer", {
 					self.showSlice(self.currentSlice - 1);
 				}
 			}
-		});
-
-		self.glasspane.mousemove(function(event) {
-			var $this = $(this);
-			var x = Math.round(event.pageX - $this.offset().left);
-			var y = Math.round(event.pageY - $this.offset().top);
+			event.preventDefault();
 		});
 	},
 
@@ -90,7 +85,7 @@ $.widget("neuromia.sliceviewer", {
 		.height(options.height)
 		.appendTo(viewport);
 
-		self.glasspane = $('<div class="glasspane">')
+		self.toplayer = $('<div class="toplayer">')
 		.width(options.width)
 		.height(options.height)
 		.appendTo(viewport);
