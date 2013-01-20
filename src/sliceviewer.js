@@ -49,11 +49,10 @@ $.widget("neuromia.sliceviewer", {
 			options = self.options;
 
 		self.element.addClass("sliceviewer")
-		.width(options.width)
-		.height(options.height);
+		.width(options.width);
 
-		self._createViewport();
 		self._createSlider();
+		self._createViewport();
 
 		self.toplayer.mousewheel(function(event, delta, deltaX, deltaY) {
 			if (delta > 0) {
@@ -70,6 +69,26 @@ $.widget("neuromia.sliceviewer", {
 		});
 	},
 
+	_createSlider: function() {
+		var self = this,
+			options = self.options;
+
+		var sliderport = $('<div class="sliderport">')
+		.appendTo(self.element);
+
+		var max = options.images.length - 1;
+
+		self.slider = $('<div class="slider">')
+		.appendTo(sliderport)
+		.slider({
+			min: 0,
+			max: max,
+			slide: function(event, ui) {
+				self.showSlice(ui.value);
+			}
+		});
+	},
+
 	_createViewport: function() {
 		var self = this,
 			options = self.options;
@@ -81,39 +100,12 @@ $.widget("neuromia.sliceviewer", {
 
 		self.stack = $('<div class="stack">')
 		.css('background-color', 'black')
-		.width(options.width)
-		.height(options.height)
 		.appendTo(viewport);
 
 		self.toplayer = $('<div class="toplayer">')
 		.width(options.width)
 		.height(options.height)
 		.appendTo(viewport);
-	},
-
-	_createSlider: function() {
-		var self = this,
-			options = self.options;
-
-		var sliderport = $('<div class="sliderport">')
-		.height(options.height)
-		.appendTo(self.element);
-
-		var max = options.images.length - 1;
-
-		self.slider = $('<div class="slider">')
-		.height(options.height - 20)
-		.css("top", "11px")
-		.appendTo(sliderport)
-		.slider({
-			orientation: "vertical",
-			range: "min",
-			min: 0,
-			max: max,
-			slide: function(event, ui) {
-				self.showSlice(ui.value);
-			}
-		});
 	},
 
 	_loadImages: function() {
@@ -158,15 +150,12 @@ $.widget("neuromia.sliceviewer", {
 		var loader = $('<div class="loader">')
 		.text("Loading images ")
 		.append('<span class="counter">0/' + imagesCount + '</span>')
-		.hide()
 		.width(self.options.width)
-		.height(20)
 		.offset({
 			top: self.element.height(),
 			left: 0
 		})
-		.appendTo(self.element)
-		.slideDown("slow");
+		.appendTo(self.element);
 
 		return loader;
 	},

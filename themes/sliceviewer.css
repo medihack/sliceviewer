@@ -6,14 +6,30 @@
  *
  * https://github.com/medihack/slice-viewer
  */
+.sliceviewer .ui-widget {
+  font-size:10px;
+}
+
 .sliceviewer {
 	position: relative;
 	padding: 0px;
 	margin: 0px;
 }
 
+.sliceviewer .sliderport {
+	background-color: #000000;
+	position: relative;
+	border-style: none;
+	padding: 8px;
+}
+
+.sliceviewer .slider {
+	position: relative;
+}
+
 .sliceviewer .viewport {
-	position: absolute;
+	position: relative;
+	overflow: hidden;
 }
 
 .sliceviewer .stack {
@@ -39,30 +55,5 @@
 	z-index: 100;
 	background-color: #000000;
 	color: #FFFFFF;
-}
-
-.sliceviewer .sliderport {
-	background-color: #000000;
-	width: 16px;
-	position: absolute;
-	right: -15px;
-	border-style: none;
-}
-
-.sliceviewer .ui-slider {
-	width: 5px;
-	left: 5px;
-}
-
-.sliceviewer .ui-slider-handle {
-	width: 24px;
-	height: 24px;
-	background:url(images/slider-button.png);
-	border-style: none;
-	outline: 0;
-	left: -0.5em;
-}
-
-.sliceviewer .ui-slider-handle.ui-state-active {
-	background:url(images/slider-button-active.png);
+	height: 20px;
 }
