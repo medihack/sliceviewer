@@ -135,8 +135,9 @@ $.widget("neuromia.sliceviewer", {
 					});
 					
 					if (ret) {
-						loader.text("Loading finished");
-						loader.slideUp("slow");
+						loader.text("Loading finished")
+						.delay(2000)
+						.slideUp("slow");
 					}
 				}
 			});
